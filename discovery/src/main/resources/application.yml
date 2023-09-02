@@ -1,0 +1,22 @@
+eureka:
+  instance:
+        hostname: localhost
+  client:
+      register-with-eureka: false
+      fetch_registry: false
+      service-url:
+       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    renewal-percent-threshold: 0.85
+server:
+  port: 8761
+spring:
+  config:
+     import: optional:configserver:http://localhost:8888
+
+
+
+
+
+
+
