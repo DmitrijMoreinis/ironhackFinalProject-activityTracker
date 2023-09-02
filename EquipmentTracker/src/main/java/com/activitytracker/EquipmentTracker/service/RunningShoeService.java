@@ -56,4 +56,6 @@ public class RunningShoeService {
         else throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "activity not found-database_error");
     }
+
+
 }

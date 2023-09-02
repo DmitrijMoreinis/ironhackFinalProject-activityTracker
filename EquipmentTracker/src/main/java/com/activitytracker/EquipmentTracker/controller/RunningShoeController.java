@@ -3,6 +3,7 @@ package com.activitytracker.EquipmentTracker.controller;
 
 import com.activitytracker.EquipmentTracker.dto.RunningShoeDto;
 import com.activitytracker.EquipmentTracker.service.RunningShoeService;
+import com.activitytracker.EquipmentTracker.service.ShoeUserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -51,9 +52,7 @@ public class RunningShoeController {
             runningShoeService.deleteShoe(id);
         }
 
-
-
-    }
+  }
 
 
 

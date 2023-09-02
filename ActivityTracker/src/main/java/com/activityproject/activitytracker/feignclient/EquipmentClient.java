@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "equipmenttracker", url = "${application.config.equipmenttracker-url}")
+@FeignClient(name = "equipmenttracker", url = "htttp//localhost:8098/api/v1/equipmentrunning")
 
 public interface EquipmentClient {
 

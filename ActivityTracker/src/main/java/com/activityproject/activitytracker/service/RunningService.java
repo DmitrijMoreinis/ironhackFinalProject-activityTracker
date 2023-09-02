@@ -1,13 +1,17 @@
 package com.activityproject.activitytracker.service;
 
 import com.activityproject.activitytracker.dto.RunningDto;
+import com.activityproject.activitytracker.feignclient.EquipmentClient;
+import com.activityproject.activitytracker.feignclient.FullShoeResponse;
 import com.activityproject.activitytracker.mapper.RunningMapper;
 import com.activityproject.activitytracker.model.Running;
+import com.activityproject.activitytracker.model.RunningShoe;
 import com.activityproject.activitytracker.repository.RunningRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -22,7 +26,7 @@ public class RunningService {
 
     private final RunningRepository runningRepository;
     private final RunningMapper mapper;
-    //private final EquipmentClient client;
+    private final EquipmentClient client;
 
 
     public RunningDto createActivity(RunningDto runningDto) {
@@ -71,13 +75,19 @@ public class RunningService {
                 HttpStatus.NOT_FOUND, "activity not found-database_error");
     }
 
-    /*
-    public FullShoeResponse getActualRunningEquipment() {
-        var actualShoe = client.findActualShoe(SecurityContextHolder.getContext().getAuthentication().getName());
-        int runnedKm = runningRepository.runnedKmSinceCreationShoe(actualShoe.)
-        return FullSchoeResponse.builder()
 
+    public FullShoeResponse getActualRunningEquipment() {
+        RunningShoe actualShoe = client.findActualShoe(SecurityContextHolder.getContext().getAuthentication().getName());
+        FullShoeResponse fs = new FullShoeResponse();
+        fs.setRunnedKm(runningRepository.runnedKmSinceCreationShoe(actualShoe.getUser(),actualShoe.getUsedSince()));
+        fs.setBrand(actualShoe.getBrand());
+        fs.setType(actualShoe.getType());
+        fs.setShoeUser(actualShoe.getUser());
+        fs.setMaxKm(actualShoe.getMaxKm());
+        fs.setUsedSince(fs.getUsedSince());
+        fs.setShoeUser(fs.getShoeUser());
+        return fs;
     }
-  */
+
 
 }

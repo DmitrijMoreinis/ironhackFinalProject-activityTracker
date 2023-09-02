@@ -11,12 +11,11 @@ public class ShoeUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Username;
+    private String name;
     @ManyToMany
     List<RunningShoe> shoeList;
 
-    @OneToMany
-    @JoinTable(name = "actualShoe")
-    List<ShoeUser> actualUsers;
+    @ManyToOne
+    RunningShoe actualShoe;
 
 }

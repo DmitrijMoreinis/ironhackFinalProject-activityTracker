@@ -1,5 +1,9 @@
 package com.activityproject.activitytracker.feignclient;
 
+
+import lombok.Data;
+
+@Data
 public class FullShoeResponse {
     private String brand;
     private String type;
@@ -9,6 +13,8 @@ public class FullShoeResponse {
     private int runnedKm;
 
     private int maxKm;
+
+    private int usedSince;
 
 
 }

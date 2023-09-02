@@ -298,65 +298,6 @@ class CyclingControllerTest {
     /**
      * Method under test: {@link CyclingController#updateCycling(UUID, CyclingDto)}
      */
-    @Test
-    @Disabled("TODO: Complete this test")
-    void testUpdateCycling2() {
-
-        Cycling cycling = new Cycling();
-        cycling.setAverageCadency(10.0f);
-        cycling.setAveragePower(10.0f);
-        cycling.setCalories(10.0f);
-        cycling.setCreatedAt(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC));
-        cycling.setDistance(10.0f);
-        cycling.setDoneTimePoint(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC));
-        cycling.setId(UUID.randomUUID());
-        cycling.setSpeed(10.0f);
-        cycling.setUser(user);
-        CyclingMapper mapper = mock(CyclingMapper.class);
-        when(mapper.toEntity(Mockito.<CyclingDto>any())).thenReturn(cycling);
-
-        User user2 = new User();
-        user2.setBirthDate(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-        user2.setCreatedAt(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-        user2.setCyclingList(new ArrayList<>());
-        user2.setName("Name");
-        user2.setOverallDistanceCycling(10.0f);
-        user2.setOverallDistanceRunning(10.0f);
-        user2.setPassword("iloveyou");
-        user2.setRoles(new ArrayList<>());
-        user2.setRunningList(new ArrayList<>());
-        user2.setUpdatedAt(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-        user2.setUser_id(UUID.randomUUID());
-        user2.setUsername("janedoe");
-        user2.setWeight(10.0f);
-
-        Cycling cycling2 = new Cycling();
-        cycling2.setAverageCadency(10.0f);
-        cycling2.setAveragePower(10.0f);
-        cycling2.setCalories(10.0f);
-        cycling2.setCreatedAt(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC));
-        cycling2.setDistance(10.0f);
-        cycling2.setDoneTimePoint(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC));
-        cycling2.setId(UUID.randomUUID());
-        cycling2.setSpeed(10.0f);
-        cycling2.setUser(user2);
-        CyclingRepository cyclingRepository = mock(CyclingRepository.class);
-        when(cyclingRepository.save(Mockito.<Cycling>any())).thenReturn(cycling2);
-        when(cyclingRepository.existsById(Mockito.<UUID>any())).thenReturn(false);
-        CyclingController cyclingController = new CyclingController(new CyclingService(mapper, cyclingRepository));
-        UUID id = UUID.randomUUID();
-
-        CyclingDto cyclingDto = new CyclingDto();
-        cyclingDto.setAverageCadency(10.0f);
-        cyclingDto.setAveragePower(10.0f);
-        cyclingDto.setCalories(10.0f);
-        cyclingDto.setCreatedAt(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC));
-        cyclingDto.setDistance(10.0f);
-        cyclingDto.setDoneTimePoint(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC));
-        cyclingDto.setId(UUID.randomUUID());
-        cyclingDto.setSpeed(10.0f);
-        cyclingController.updateCycling(id, cyclingDto);
-    }
 
     /**
      * Method under test: {@link CyclingController#updateCycling(UUID, CyclingDto)}

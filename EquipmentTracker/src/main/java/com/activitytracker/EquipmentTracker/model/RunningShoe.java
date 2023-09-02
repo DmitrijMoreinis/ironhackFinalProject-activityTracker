@@ -24,10 +24,12 @@ public class RunningShoe {
     @CreationTimestamp
     ZonedDateTime createdAt;
 
+    ZonedDateTime usedSince;
+
     @ManyToMany(mappedBy = "shoeList")
     List<ShoeUser> listOfUsers;
 
-    @ManyToOne
-    RunningShoe actualShoe;
+    @OneToMany
+    List<ShoeUser> actualUser;
 
 }
