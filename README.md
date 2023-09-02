@@ -5,7 +5,7 @@ I implmented the most common ones, running and Cycling. Others are also possible
 there is a second service, which tracks the condition of the equipment and offers the user reminderer to refresh the equipment.
 
 # Class Diagram
-![image](https://github.com/Ironhack-Java-AmazonCareerChoice-ENG1/dmitrijmoreinis-finalproject-sportstracker/assets/133784906/546d99c7-636f-4f2e-a09c-d75b883240c4)
+![image](https://github.com/Ironhack-Java-AmazonCareerChoice-ENG1/dmitrijmoreinis-finalproject-tracker/assets/133784906/016aa3be-c5e5-485b-a18d-9cf33f4ea619)
 
 # Setup
 # Technologies Used
