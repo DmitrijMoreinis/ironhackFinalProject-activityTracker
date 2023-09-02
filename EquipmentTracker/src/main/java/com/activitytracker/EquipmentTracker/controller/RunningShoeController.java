@@ -15,7 +15,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/equipmentrunning")
+@RequestMapping("/api/v1/equipmentused")
 
 public class RunningShoeController {
 

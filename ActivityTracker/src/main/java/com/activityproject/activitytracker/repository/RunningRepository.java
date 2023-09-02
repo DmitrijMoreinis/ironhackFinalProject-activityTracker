@@ -12,7 +12,12 @@ import static org.hibernate.sql.ast.Clause.WHERE;
 
 @Repository
 public interface RunningRepository extends JpaRepository<Running, UUID> {
-
+    /**
+     * returns the sum of runned kilometers since the shoe was used for a special user
+     * @param user name of the user using the equipment
+     * @param usedSince the date a shoe was started to use
+     * @return
+     */
     @Query(value= "SELECT SUM(distance) FROM Running WHERE user=user AND createdAt>usedSince", nativeQuery=true )
     int runnedKmSinceCreationShoe(String user, ZonedDateTime usedSince);
 }

@@ -28,7 +28,11 @@ public class RunningService {
     private final RunningMapper mapper;
     private final EquipmentClient client;
 
-
+    /**
+     *
+     * @param runningDto
+     * @return
+     */
     public RunningDto createActivity(RunningDto runningDto) {
         var entity = mapper.toEntity(runningDto);
         log.info("runningactivity saving");
@@ -75,7 +79,10 @@ public class RunningService {
                 HttpStatus.NOT_FOUND, "activity not found-database_error");
     }
 
-
+    /**
+     * getting the actual shoe from the other service and population the fullrepsonse with the actualshoe and the number of kilometers runned with it
+     * @returnthe full response of the used shoe inclusive the runnedkiloemters and
+     */
     public FullShoeResponse getActualRunningEquipment() {
         RunningShoe actualShoe = client.findActualShoe(SecurityContextHolder.getContext().getAuthentication().getName());
         FullShoeResponse fs = new FullShoeResponse();
